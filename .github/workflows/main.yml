@@ -39,4 +39,17 @@ jobs:
           rsync -avz -e "ssh -i ${{ secrets.EC2_PRIVATE_KEY }}" --delete dist/ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/vue-website/
           ls /home/ubuntu/vue-website/
           sudo systemctl restart nginx
+    
+    - name: Check deployed files
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        script: |
+          echo "Contents of /home/ubuntu/vue-website:"
+          ls -la /home/ubuntu/vue-website
+          echo "Content of the index.html file:"
+          cat /home/ubuntu/vue-website/index.html
+
 
