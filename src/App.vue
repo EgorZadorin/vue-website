@@ -1,26 +1,55 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <div class="welcome-container">
+      <h1 class="welcome-title">Welcome to Egor Zadorin's Website!</h1>
+      <p class="welcome-text">This is a simple but beautiful Welcome page created with Vue.js.</p>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+};
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('~@/assets/tech-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.welcome-container {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 800px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #3c3c3c;
+}
+
+.welcome-text {
+  font-size: 1.25rem;
+  color: #5a5a5a;
 }
 </style>
