@@ -42,8 +42,5 @@ jobs:
         script: |
           sudo mkdir -p /home/ubuntu/vue-website
           sudo chown ${{ secrets.EC2_USERNAME }} /home/ubuntu/vue-website
-          cd /home/ubuntu/vue-website
-          sudo rm -rf * # Add this line to remove existing files in the target directory
-          tar -xvf jaWIdAUOKk.tar
-          sudo rm jaWIdAUOKk.tar
+          sudo rm -rf /home/ubuntu/vue-website/*
           sudo systemctl restart nginx
