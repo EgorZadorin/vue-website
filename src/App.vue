@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <div class="welcome-container">
-      <h1 class="welcome-title">Welcome to Egor Zadorin's Website!</h1>
-      <p class="welcome-text">This is a simple but beautiful Welcome page created with Vue.js.</p>
-    </div>
+    <WebsiteNavbar />
+    <WebsiteHeader />
+    <WebsiteContent />
+    <WebsiteFooter />
   </div>
 </template>
 
 <script>
+import WebsiteNavbar from "./components/WebsiteNavbar.vue";
+import WebsiteHeader from "./components/WebsiteHeader.vue";
+import WebsiteContent from "./components/WebsiteContent.vue";
+import WebsiteFooter from "./components/WebsiteFooter.vue";
+
 export default {
-  name: 'App',
+  name: "App",
+  components: {
+    WebsiteNavbar,
+    WebsiteHeader,
+    WebsiteContent,
+    WebsiteFooter,
+  },
 };
+
 </script>
 
 <style>
@@ -33,23 +45,4 @@ body {
   background-position: center;
 }
 
-.welcome-container {
-  text-align: center;
-  max-width: 800px;
-  padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.welcome-title {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #3c3c3c;
-}
-
-.welcome-text {
-  font-size: 1.25rem;
-  color: #5a5a5a;
-}
 </style>
