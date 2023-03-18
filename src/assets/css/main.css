@@ -1,0 +1,28 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.website-content {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer {
+    font-size: 0.8rem;
+}

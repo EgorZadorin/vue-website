@@ -1,7 +1,6 @@
 <template>
   <header>
-    <h1>Welcome to Egor Zadorin's Website!</h1>
-    <p>This is a simple but beautiful Welcome page created with Vue.js.</p>
+    Welcome to Egor Zadorin's Website!
   </header>
 </template>
 
