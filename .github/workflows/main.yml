@@ -36,6 +36,7 @@ jobs:
         script: |
           sudo mkdir -p /home/ubuntu/vue-website
           sudo chown ${{ secrets.EC2_USERNAME }} /home/ubuntu/vue-website
-          scp -r -i ${{ secrets.EC2_PRIVATE_KEY }} dist/* ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/vue-website/
+          rsync -avz -e "ssh -i ${{ secrets.EC2_PRIVATE_KEY }}" --delete dist/ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/vue-website/
           ls /home/ubuntu/vue-website/
           sudo systemctl restart nginx
+
