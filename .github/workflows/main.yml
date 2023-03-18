@@ -33,10 +33,17 @@ jobs:
         source: "dist/"
         target: "/home/ubuntu/vue-website"
         
-    - name: Restart Nginx
+    - name: Set up and restart Nginx
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
-        script: sudo systemctl restart nginx
+        script: |
+          sudo mkdir -p /home/ubuntu/vue-website
+          sudo chown ${{ secrets.EC2_USERNAME }} /home/ubuntu/vue-website
+          cd /home/ubuntu/vue-website
+          sudo rm -rf * # Add this line to remove existing files in the target directory
+          tar -xvf jaWIdAUOKk.tar
+          sudo rm jaWIdAUOKk.tar
+          sudo systemctl restart nginx
