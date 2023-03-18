@@ -22,18 +22,11 @@ jobs:
       run: npm ci
 
     - name: Build
-      run: npm run build
+      run: |
+        npm run build
+        ls dist/
 
     - name: Deploy to EC2
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        source: "dist/"
-        target: "/home/ubuntu/vue-website"
-        
-    - name: Set up and restart Nginx
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.EC2_HOST }}
@@ -42,5 +35,6 @@ jobs:
         script: |
           sudo mkdir -p /home/ubuntu/vue-website
           sudo chown ${{ secrets.EC2_USERNAME }} /home/ubuntu/vue-website
-          sudo rm -rf /home/ubuntu/vue-website/*
+          sudo rsync -avz --delete --exclude=.git --exclude=node_modules ./dist/ /home/ubuntu/vue-website/
+          ls /home/ubuntu/vue-website/
           sudo systemctl restart nginx
