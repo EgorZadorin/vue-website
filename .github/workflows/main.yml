@@ -50,6 +50,7 @@ jobs:
           echo "Contents of /home/ubuntu/vue-website:"
           ls -la /home/ubuntu/vue-website
           echo "Content of the index.html file:"
-          cat /home/ubuntu/vue-website/index.html
+          cat /home/ubuntu/vue-website/dist/index.html
+
 
 
