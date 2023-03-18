@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <WebsiteNavbar />
-    <WebsiteHeader />
-    <WebsiteContent />
-    <WebsiteFooter />
+    <WebsiteNavbar/>
+    <div class="main-content">
+      <WebsiteHeader/>
+      <WebsiteContent/>
+    </div>
+    <WebsiteFooter/>
   </div>
 </template>
 
@@ -22,7 +24,6 @@ export default {
     WebsiteFooter,
   },
 };
-
 </script>
 
 <style>
@@ -37,12 +38,18 @@ body {
 
 #app {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
   background-image: url('~@/assets/tech-background.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 }
 
 </style>
