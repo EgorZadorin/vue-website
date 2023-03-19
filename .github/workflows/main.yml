@@ -47,10 +47,10 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
-          echo "Contents of /home/ubuntu/vue-website:"
-          ls -la /home/ubuntu/vue-website
+          echo "Contents of /home/ubuntu/vue-temp-deploy:"
+          ls -la /home/ubuntu/temp-deploy
           echo "Content of the index.html file:"
-          cat /home/ubuntu/vue-website/dist/index.html
+          cat /home/ubuntu/temp-deploy/dist/index.html
           
     - name: Execute deploy script
       uses: appleboy/ssh-action@master
