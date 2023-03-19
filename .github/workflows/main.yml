@@ -24,9 +24,6 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: List dist folder contents
-      run: ls dist/
-
     - name: Deploy to EC2
       uses: appleboy/ssh-action@master
       with:
@@ -34,33 +31,4 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
-          sudo mkdir -p /home/ubuntu/temp-deploy
-          sudo chown ${{ secrets.EC2_USERNAME }} /home/ubuntu/temp-deploy
-          rsync -avz -e "ssh -i ${{ secrets.EC2_PRIVATE_KEY }} -o StrictHostKeyChecking=no" --delete dist/ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/temp-deploy/
-          ls /home/ubuntu/temp-deploy/
-
-    
-    - name: Check deployed files
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        script: |
-          echo "Contents of /home/ubuntu/vue-temp-deploy:"
-          ls -la /home/ubuntu/temp-deploy
-          echo "Content of the index.html file:"
-          cat /home/ubuntu/temp-deploy/dist/index.html
-          
-    - name: Execute deploy script
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
-        script: |
-          ./deploy.sh
-
-
-
-
+          /home/ubuntu/deploy.sh
