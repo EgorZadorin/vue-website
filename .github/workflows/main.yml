@@ -36,7 +36,7 @@ jobs:
         script: |
           sudo mkdir -p /home/ubuntu/temp-deploy
           sudo chown ${{ secrets.EC2_USERNAME }} /home/ubuntu/temp-deploy
-          rsync -avz -e "ssh -i ${{ secrets.EC2_PRIVATE_KEY }}" --delete dist/ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/temp-deploy/
+          rsync -avz -e "ssh -i ${{ secrets.EC2_PRIVATE_KEY }} -o StrictHostKeyChecking=no" --delete dist/ ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/temp-deploy/
           ls /home/ubuntu/temp-deploy/
 
     
