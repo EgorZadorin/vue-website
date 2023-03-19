@@ -19,7 +19,6 @@ jobs:
           REMOTE_HOST: "ec2-3-125-208-225.eu-central-1.compute.amazonaws.com"
           REMOTE_USER: "ubuntu"
           TARGET: "/home/ubuntu/vue-website"
-      
-      - name: Apply changes
-        run:
-          npm run build
+          SCRIPT_AFTER: |
+            cd /home/ubuntu/vue-website
+            npm run build
