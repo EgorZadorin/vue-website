@@ -2,7 +2,7 @@
   <div class="content">
     <div class="content-inner">
       <h2>About Me</h2>
-      <p>Hi, I'm Egor Zadorin, a software engineer specializing in Java/Spring Boot and AWS. As a Computer Science M.Sc. student, I constantly refine my skills to develop innovative solutions. Explore my personal website to discover my experience and dedication to impactful software creation.</p>
+      <p></p>
     </div>
   </div>
 </template>
