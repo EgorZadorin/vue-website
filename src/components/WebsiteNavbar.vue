@@ -1,4 +1,3 @@
-<!-- WebsiteNavbar.vue -->
 <template>
   <nav>
     <ul>
@@ -21,7 +20,7 @@
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" @click="$emit('show-contact', '#contact')">
+        <a href="javascript:void(0)" @click="$emit('navigate', '#contact')">
           <i class="fas fa-envelope"></i>
           <span>Contact</span>
         </a>

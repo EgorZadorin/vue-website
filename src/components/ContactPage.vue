@@ -1,20 +1,23 @@
 <!-- ContactPage.vue -->
 <template>
-  <h2>Contact</h2>
-  <div class="contact-container">
-    <p>Get in touch with me on the following platforms:</p>
-    <div class="social-links">
-      <a href="https://github.com/EgorZadorin" target="_blank" rel="noopener noreferrer">
+  <div class="content">
+    <h2>Contact</h2>
+    <div class="content-inner">
+      <p>Get in touch with me on the following platforms:</p>
+      <div class="social-links">
+        <a href="https://github.com/EgorZadorin" target="_blank" rel="noopener noreferrer">
         <span class="icon-wrapper">
           <i class="fab fa-github fa-2x"></i>
         </span>
-      </a>
-      <a href="https://www.linkedin.com/in/egor-zadorin" target="_blank" rel="noopener noreferrer">
+        </a>
+        <a href="https://www.linkedin.com/in/egor-zadorin" target="_blank" rel="noopener noreferrer">
         <span class="icon-wrapper">
           <i class="fab fa-linkedin fa-2x"></i>
         </span>
-      </a>
-    </div></div>
+        </a>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -25,6 +28,16 @@ export default {
 
 <style scoped>
 
+.content {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
 h2 {
   margin-bottom: 20px;
   color: #fff;
@@ -32,7 +45,7 @@ h2 {
   text-align: center;
 }
 
-.contact-container {
+.content-inner {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 30px;
   border-radius: 10px;
@@ -53,6 +66,10 @@ h2 {
 .social-links i {
   color: #333;
   transition: color 0.3s, opacity 0.3s;
+}
+
+.content-inner p {
+  color: #333;
 }
 
 .social-links a:hover i {
