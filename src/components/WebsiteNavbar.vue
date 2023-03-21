@@ -1,26 +1,27 @@
+<!-- WebsiteNavbar.vue -->
 <template>
   <nav>
     <ul>
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', 'home')">
+        <a href="javascript:void(0)" @click="$emit('navigate', '#home')">
           <i class="fas fa-home"></i>
           <span>Home</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', 'about')">
+        <a href="javascript:void(0)" @click="$emit('navigate', '#about')">
           <i class="fas fa-info-circle"></i>
           <span>About</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', 'portfolio')">
+        <a href="javascript:void(0)" @click="$emit('navigate', '#portfolio')">
           <i class="fas fa-briefcase"></i>
           <span>Portfolio</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" @click="$emit('show-contact')">
+        <a href="javascript:void(0)" @click="$emit('show-contact', '#contact')">
           <i class="fas fa-envelope"></i>
           <span>Contact</span>
         </a>
@@ -28,6 +29,7 @@
     </ul>
   </nav>
 </template>
+
 
 <script>
 export default {

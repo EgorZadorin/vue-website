@@ -1,14 +1,24 @@
 <template>
   <div id="app">
-    <WebsiteNavbar @show-contact="toggleContactPage" @navigate="navigateTo"/>
+    <WebsiteNavbar @navigate="scrollToSection" />
     <div class="main-content">
-      <WebsiteHeader v-show="currentSection === 'home'"/>
-      <AboutPage v-show="currentSection === 'about'"/>
+      <section id="home">
+        <WebsiteHeader />
+      </section>
+      <section id="about">
+        <AboutPage />
+      </section>
+      <section id="portfolio">
+        <PortfolioPage />
+      </section>
+      <section id="contact">
+        <ContactPage />
+      </section>
     </div>
-    <ContactPage v-if="showContact" @close-contact="toggleContactPage"/>
-    <WebsiteFooter/>
+    <WebsiteFooter />
   </div>
 </template>
+
 
 <script>
 import WebsiteNavbar from "./components/WebsiteNavbar.vue";
@@ -16,6 +26,7 @@ import WebsiteHeader from "./components/WebsiteHeader.vue";
 import WebsiteFooter from "./components/WebsiteFooter.vue";
 import ContactPage from "@/components/ContactPage.vue";
 import AboutPage from "@/components/AboutPage.vue";
+import PortfolioPage from "@/components/PortfolioPage.vue";
 
 export default {
   name: "App",
@@ -25,19 +36,14 @@ export default {
     WebsiteFooter,
     ContactPage,
     AboutPage,
-  },
-  data() {
-    return {
-      showContact: false,
-      currentSection: "home",
-    };
+    PortfolioPage,
   },
   methods: {
-    toggleContactPage() {
-      this.showContact = !this.showContact;
-    },
-    navigateTo(section) {
-      this.currentSection = section;
+    scrollToSection(sectionId) {
+      const section = document.querySelector(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     },
   },
 };
@@ -47,11 +53,17 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 1.1em;
+  line-height: 1.5;
 }
 
 #app {
@@ -66,6 +78,24 @@ body {
   background-image: url('~@/assets/tech-background.jpg');
   background-size: cover;
   background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+#home {
+  position: relative;
+  overflow: hidden;
+}
+
+#home::before {
+  content: "";
+  background-image: url('~@/assets/tech-background.jpg');
+  background-size: cover;
+  background-position: center;
   filter: grayscale(100%) brightness(30%);
   position: absolute;
   top: 0;
@@ -75,12 +105,15 @@ body {
   z-index: -1;
 }
 
-.main-content {
+.main-content > section {
+  min-height: 100vh;
   display: flex;
-  flex-grow: 1;
-  align-items: center;
   justify-content: center;
-  position: relative;
+  align-items: center;
+  background-color: #000;
+  z-index: 1;
+  padding: 0 15px;
 }
 
 </style>
+

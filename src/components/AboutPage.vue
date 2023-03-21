@@ -1,7 +1,7 @@
 <template>
   <div class="content" itemscope itemtype="https://schema.org/Person">
+    <h2>About Me</h2>
     <div class="content-inner">
-      <h2>About Me</h2>
       <p>
         Hi, I'm <span itemprop="name">Egor Zadorin</span>, a software engineer
         specializing in Java/Spring Boot and AWS. As a Computer Science M.Sc.
@@ -30,20 +30,30 @@ export default {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
 }
 
 .content-inner {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 30px;
   border-radius: 10px;
+  text-align: justify;
 }
 
 h2 {
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
 }
 
 p {
   color: #333;
+  margin-bottom: 15px;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 </style>

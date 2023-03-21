@@ -1,18 +1,20 @@
 <!-- ContactPage.vue -->
 <template>
+  <h2>Contact</h2>
   <div class="contact-container">
-    <h1>Contact</h1>
     <p>Get in touch with me on the following platforms:</p>
-    <ul class="social-links">
-      <li>
-        <a href="https://github.com/EgorZadorin" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/egor-zadorin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </li>
-    </ul>
-    <button class="close-button" @click="$emit('close-contact')">Close</button>
-  </div>
+    <div class="social-links">
+      <a href="https://github.com/EgorZadorin" target="_blank" rel="noopener noreferrer">
+        <span class="icon-wrapper">
+          <i class="fab fa-github fa-2x"></i>
+        </span>
+      </a>
+      <a href="https://www.linkedin.com/in/egor-zadorin" target="_blank" rel="noopener noreferrer">
+        <span class="icon-wrapper">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </span>
+      </a>
+    </div></div>
 </template>
 
 <script>
@@ -22,54 +24,41 @@ export default {
 </script>
 
 <style scoped>
-.contact-container {
-  background-color: rgba(127, 127, 127, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
+
+h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 2em;
   text-align: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
 }
 
+.contact-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: justify;
+}
 
 .social-links {
-  list-style: none;
-  padding: 0;
   display: flex;
   justify-content: center;
+  gap: 40px;
   margin-bottom: 20px;
-}
-
-.social-links li {
-  margin: 0 10px;
 }
 
 .social-links a {
   text-decoration: none;
+}
+
+.social-links i {
   color: #333;
-  font-size: 1.1rem;
+  transition: color 0.3s, opacity 0.3s;
 }
 
-.social-links a:hover {
-  text-decoration: underline;
+.social-links a:hover i {
+  color: #3CB371;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
-.close-button {
-  background-color: #333;
-  color: white;
-  padding: 8px 16px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.close-button:hover {
-  background-color: #555;
-}
 </style>
