@@ -29,7 +29,13 @@ export default {
   width: 80%;
   max-width: 600px;
   text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
+
 
 .social-links {
   list-style: none;

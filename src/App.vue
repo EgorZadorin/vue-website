@@ -58,9 +58,21 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+}
+
+#app::before {
+  content: "";
   background-image: url('~@/assets/tech-background.jpg');
   background-size: cover;
   background-position: center;
+  filter: grayscale(100%) brightness(30%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .main-content {
@@ -68,6 +80,7 @@ body {
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 </style>
