@@ -5,6 +5,7 @@
       <WebsiteHeader/>
       <WebsiteContent/>
     </div>
+    <ContactPage v-if="showContact" @close-contact="toggleContactPage"/>
     <WebsiteFooter/>
   </div>
 </template>
@@ -14,6 +15,7 @@ import WebsiteNavbar from "./components/WebsiteNavbar.vue";
 import WebsiteHeader from "./components/WebsiteHeader.vue";
 import WebsiteContent from "./components/WebsiteContent.vue";
 import WebsiteFooter from "./components/WebsiteFooter.vue";
+import ContactPage from "@/components/ContactPage.vue";
 
 export default {
   name: "App",
@@ -22,7 +24,18 @@ export default {
     WebsiteHeader,
     WebsiteContent,
     WebsiteFooter,
+    ContactPage,
   },
+  data() {
+    return {
+      showContact: false,
+    };
+  },
+  methods: {
+    toggleContactPage() {
+      this.showContact = !this.showContact;
+    }
+  }
 };
 </script>
 
