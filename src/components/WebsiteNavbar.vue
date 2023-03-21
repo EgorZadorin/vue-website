@@ -1,9 +1,9 @@
 <template>
   <nav>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="javascript:void(0)" @click="$emit('navigate', 'home')">Home</a></li>
+      <li><a href="javascript:void(0)" @click="$emit('navigate', 'about')">About</a></li>
+      <li><a href="javascript:void(0)" @click="$emit('navigate', 'portfolio')">Portfolio</a></li>
       <li><a href="javascript:void(0)" @click="$emit('show-contact')">Contact</a></li>
     </ul>
   </nav>

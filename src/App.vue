@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <WebsiteNavbar/>
+    <WebsiteNavbar @show-contact="toggleContactPage" @navigate="navigateTo"/>
     <div class="main-content">
-      <WebsiteHeader/>
-      <WebsiteContent/>
+      <WebsiteHeader v-show="currentSection === 'home'"/>
+      <AboutPage v-show="currentSection === 'about'"/>
     </div>
     <ContactPage v-if="showContact" @close-contact="toggleContactPage"/>
     <WebsiteFooter/>
@@ -13,31 +13,36 @@
 <script>
 import WebsiteNavbar from "./components/WebsiteNavbar.vue";
 import WebsiteHeader from "./components/WebsiteHeader.vue";
-import WebsiteContent from "./components/WebsiteContent.vue";
 import WebsiteFooter from "./components/WebsiteFooter.vue";
 import ContactPage from "@/components/ContactPage.vue";
+import AboutPage from "@/components/AboutPage.vue";
 
 export default {
   name: "App",
   components: {
     WebsiteNavbar,
     WebsiteHeader,
-    WebsiteContent,
     WebsiteFooter,
     ContactPage,
+    AboutPage,
   },
   data() {
     return {
       showContact: false,
+      currentSection: "home",
     };
   },
   methods: {
     toggleContactPage() {
       this.showContact = !this.showContact;
-    }
-  }
+    },
+    navigateTo(section) {
+      this.currentSection = section;
+    },
+  },
 };
 </script>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
