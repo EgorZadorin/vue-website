@@ -28,54 +28,8 @@ export default {
 
 <style scoped>
 
-.content {
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 800px;
-}
-
-h2 {
-  margin-bottom: 20px;
-  color: #fff;
-  font-size: 2em;
-  text-align: center;
-}
-
-.content-inner {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 30px;
-  border-radius: 10px;
-  text-align: justify;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 20px;
-}
-
-.social-links a {
-  text-decoration: none;
-}
-
-.social-links i {
-  color: #333;
-  transition: color 0.3s, opacity 0.3s;
-}
-
 .content-inner p {
   color: #333;
-}
-
-.social-links a:hover i {
-  color: #3CB371;
-  text-decoration: none;
-  opacity: 0.8;
 }
 
 </style>

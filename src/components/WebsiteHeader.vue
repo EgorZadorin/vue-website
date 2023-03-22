@@ -28,18 +28,5 @@ header {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
 }
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
-}
-.social-links a {
-  color: inherit;
-  text-decoration: none;
-}
-.social-links a:hover {
-  color: #3CB371;
-  text-decoration: none;
-}
+
 </style>

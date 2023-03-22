@@ -35,13 +35,6 @@ export default {
   max-width: 800px;
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #fff;
-  font-size: 2em;
-  text-align: center;
-}
-
 .disclaimer {
   color: #ccc;
   font-size: 0.9em;

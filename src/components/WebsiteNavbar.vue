@@ -20,6 +20,12 @@
         </a>
       </li>
       <li>
+        <a href="javascript:void(0)" @click="$emit('navigate', '#blog')">
+          <i class="fas solid fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </li>
+      <li>
         <a href="javascript:void(0)" @click="$emit('navigate', '#contact')">
           <i class="fas fa-envelope"></i>
           <span>Contact</span>

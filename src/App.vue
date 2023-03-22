@@ -11,6 +11,9 @@
       <section id="portfolio">
         <PortfolioPage />
       </section>
+      <section id ="blog">
+        <BlogPage />
+      </section>
       <section id="contact">
         <ContactPage />
       </section>
@@ -27,6 +30,7 @@ import WebsiteFooter from "./components/WebsiteFooter.vue";
 import ContactPage from "@/components/ContactPage.vue";
 import AboutPage from "@/components/AboutPage.vue";
 import PortfolioPage from "@/components/PortfolioPage.vue";
+import BlogPage from "@/components/BlogPage.vue";
 
 export default {
   name: "App",
@@ -37,6 +41,7 @@ export default {
     ContactPage,
     AboutPage,
     PortfolioPage,
+    BlogPage
   },
   methods: {
     scrollToSection(sectionId) {
@@ -51,7 +56,6 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 html {
   scroll-behavior: smooth;
