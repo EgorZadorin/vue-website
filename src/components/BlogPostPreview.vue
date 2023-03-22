@@ -38,4 +38,5 @@ export default {
 .blog-post-preview p {
   margin-top: 5px;
 }
+
 </style>
