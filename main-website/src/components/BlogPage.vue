@@ -20,27 +20,21 @@ export default {
       posts: [
         {
           id: 1,
-          title: "Blog Post 1",
-          description: "This is the description of the first blog post.",
+          title: "SFTP transition article",
+          description: "Coming soon...",
           slug: "blog-post-1",
         },
         {
           id: 2,
-          title: "Blog Post 2",
-          description: "This is the description of the second blog post.",
+          title: "Data Mining article",
+          description: "Coming soon...",
           slug: "blog-post-2",
         },
         {
           id: 3,
-          title: "Blog Post 3",
-          description: "This is the description of the third blog post.",
+          title: "AWS Lambda Cold Start article",
+          description: "Coming soon...",
           slug: "blog-post-3",
-        },
-        {
-          id: 4,
-          title: "Blog Post 4",
-          description: "This is the description of the fourth blog post.",
-          slug: "blog-post-4",
         },
       ],
     };

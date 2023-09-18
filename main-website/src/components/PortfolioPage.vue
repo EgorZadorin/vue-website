@@ -1,19 +1,24 @@
 <template>
   <div class="portfolio">
     <h2>Portfolio</h2>
-    <p class="disclaimer">* The following projects are fictional and for demonstration purposes only.</p>
     <div class="projects">
-      <div class="project">
-        <h3>Project Alpha</h3>
-        <p>An e-commerce platform built using Java, Spring Boot, and Angular, providing a seamless shopping experience for customers and a powerful management dashboard for administrators.</p>
+      <div class="project new-project">
+        <h3>Spring Boot + AWS Lambda Project</h3>
+        <ul>
+          <li>This project demonstrates a Spring Boot app integrated with AWS Lambda, exposing RESTful APIs</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Java, Spring Boot, AWS Lambda, AWS API Gateway, AWS SAM</p>
+        <a href="https://spring.egorzadorin.com" target="_blank" rel="noopener noreferrer">View Project</a>
       </div>
-      <div class="project">
-        <h3>Project Beta</h3>
-        <p>A real-time chat application developed using Node.js, Express, and React, featuring secure user authentication, group chats, and multimedia sharing capabilities.</p>
-      </div>
-      <div class="project">
-        <h3>Project Gamma</h3>
-        <p>A mobile fitness tracking app designed for iOS and Android platforms, leveraging Flutter and Firebase to help users track their workouts, set goals, and share achievements with friends.</p>
+      <div class="project new-project">
+        <h3>Stock Price Predictor & Alert System</h3>
+        <ul>
+          <li>Predict stock prices using historical data.</li>
+          <li>Generate visual reports for the predicted vs actual prices.</li>
+          <li>Send alerts when it's optimal to buy/sell.</li>
+        </ul>
+        <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, Matplotlib/Seaborn, Docker, Kubernetes.</p>
+        <a href="http://python.egorzadorin.com" target="_blank" rel="noopener noreferrer">View Project</a>
       </div>
     </div>
   </div>
@@ -33,13 +38,6 @@ export default {
   align-items: center;
   width: 100%;
   max-width: 800px;
-}
-
-.disclaimer {
-  color: #ccc;
-  font-size: 0.9em;
-  margin-bottom: 30px;
-  text-align: center;
 }
 
 .projects {
@@ -64,4 +62,23 @@ export default {
   color: #333;
   margin-bottom: 0;
 }
+
+.new-project a {
+  display: inline-block;
+  background-color: #3CB371;
+  color: black;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.new-project li {
+  color: black;
+}
+
+.new-project ul {
+  margin-bottom: 10px;
+}
+
 </style>

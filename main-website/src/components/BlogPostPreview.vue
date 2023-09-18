@@ -23,7 +23,7 @@ export default {
 
 .blog-post-preview h3 {
   margin: 0;
-  color: #007bff;
+  color: #3CB371;
   text-decoration: none;
 }
 
