@@ -1,24 +1,49 @@
-name: Push-to-EC2
+name: Deploy to EC2
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
-    name: Push to EC2 Instance
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v1
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-      - name: Deploy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v4.1.8
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
-          SOURCE: "./"
-          REMOTE_HOST: "ec2-3-125-208-225.eu-central-1.compute.amazonaws.com"
-          REMOTE_USER: "ubuntu"
-          TARGET: "/home/ubuntu/vue-website"
-          SCRIPT_AFTER: |
-            cd /home/ubuntu/vue-website
-            npm run build
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Build main-website
+        run: |
+          cd main-website
+          npm install
+          npm run build
+
+      - name: Build blog
+        run: |
+          cd blog
+          npm install
+          npm run build
+
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USERNAME}}
+          key: ${{secrets.EC2_PRIVATE_KEY}}
+          source: "main-website/dist/*"
+          target: "/var/www/main-website"
+
+      - name: Copy files to EC2 (Blog)
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USERNAME}}
+          key: ${{secrets.EC2_PRIVATE_KEY}}
+          source: "blog/dist/*"
+          target: "/var/www/lambda-spring"
