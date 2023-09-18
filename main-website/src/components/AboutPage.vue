@@ -25,5 +25,8 @@ export default {
 
 <style scoped>
 
+.content {
+  background-color: #57BB7E;
+}
 
 </style>

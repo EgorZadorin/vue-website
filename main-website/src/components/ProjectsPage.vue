@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio">
-    <h2>Portfolio</h2>
+    <h2>Projects</h2>
     <div class="projects">
       <div class="project new-project">
         <h3>Spring Boot + AWS Lambda Project</h3>
@@ -47,13 +47,13 @@ export default {
 }
 
 .project {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #F0F0F0;
   padding: 20px;
   border-radius: 10px;
 }
 
 .project h3 {
-  color: #333;
+  color: #000000;
   font-size: 1.5em;
   margin-bottom: 10px;
 }
@@ -65,8 +65,8 @@ export default {
 
 .new-project a {
   display: inline-block;
-  background-color: #3CB371;
-  color: black;
+  background-color: #57BB7E;
+  color: #F0F0F0;
   padding: 8px 16px;
   margin-top: 10px;
   border-radius: 5px;
@@ -74,7 +74,7 @@ export default {
 }
 
 .new-project li {
-  color: black;
+  color: #000000;
 }
 
 .new-project ul {

@@ -70,7 +70,7 @@ nav li {
 }
 
 nav a {
-  color: white;
+  color: #F0F0F0;
   text-decoration: none;
   padding: 10px;
   display: flex;
@@ -85,7 +85,7 @@ nav i {
 }
 
 nav a:hover {
-  color: #3CB371;
+  color: #57BB7E;
 }
 
 nav a:hover span {
@@ -101,11 +101,11 @@ nav span {
 @media (max-width: 767px) {
   nav {
     flex-direction: row;
-    width: 100%;
     top: initial;
     bottom: 0;
     left: 0;
     padding: 0;
+    width: 200px;  /* or whatever width you want */
   }
 
   nav ul {

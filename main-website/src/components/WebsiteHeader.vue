@@ -1,18 +1,7 @@
 <template>
   <header>
-    <h1>Welcome to Egor Zadorin's Website!</h1>
-    <div class="social-links">
-      <a href="https://github.com/EgorZadorin" target="_blank" rel="noopener noreferrer">
-        <span class="icon-wrapper">
-          <i class="fab fa-github fa-2x"></i>
-        </span>
-      </a>
-      <a href="https://www.linkedin.com/in/egor-zadorin" target="_blank" rel="noopener noreferrer">
-        <span class="icon-wrapper">
-          <i class="fab fa-linkedin fa-2x"></i>
-        </span>
-      </a>
-    </div>
+    <h2>EGOR ZADORIN</h2>
+    <h1>Software & ML Engineer</h1>
   </header>
 </template>
 
@@ -21,12 +10,25 @@ export default {
   name: "WebsiteHeader",
 };
 </script>
+
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+
 header {
-  text-align: center;
-  padding: 50px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 200px;
+  text-align: left;
+  font-family: 'Raleway', 'Arial', sans-serif;
   font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  margin-bottom: 45px !important;
+  font-size: 100px;
 }
 
 </style>

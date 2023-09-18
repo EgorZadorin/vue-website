@@ -29,7 +29,7 @@ import WebsiteHeader from "./components/WebsiteHeader.vue";
 import WebsiteFooter from "./components/WebsiteFooter.vue";
 import ContactPage from "@/components/ContactPage.vue";
 import AboutPage from "@/components/AboutPage.vue";
-import PortfolioPage from "@/components/PortfolioPage.vue";
+import PortfolioPage from "@/components/ProjectsPage.vue";
 import BlogPage from "@/components/BlogPage.vue";
 
 export default {
@@ -64,7 +64,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', 'Arial', sans-serif;
   color: #fff;
   font-size: 1.1em;
   line-height: 1.5;
@@ -79,7 +79,7 @@ body {
 
 #app::before {
   content: "";
-  background-image: url('~@/assets/tech-background.jpg');
+  background-image: url('~@/assets/tech-background.png');
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -97,10 +97,9 @@ body {
 
 #home::before {
   content: "";
-  background-image: url('~@/assets/tech-background.jpg');
+  background-image: url('~@/assets/tech-background.png');
   background-size: cover;
   background-position: center;
-  filter: grayscale(100%) brightness(30%);
   position: absolute;
   top: 0;
   left: 0;
