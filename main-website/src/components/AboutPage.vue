@@ -1,10 +1,9 @@
 <template>
   <div class="content" itemscope itemtype="https://schema.org/Person">
-    <h2>About Me</h2>
+    <h2>Hi, I'm <span itemprop="name">Egor Zadorin</span>,</h2>
     <div class="content-inner">
       <p>
-        Hi, I'm <span itemprop="name">Egor Zadorin</span>, a software engineer
-        specializing in Java/Spring Boot and AWS. As a Computer Science M.Sc.
+        a Software Engineer specializing in Java/Spring Framework and AWS. As a Computer Science M.Sc.
         student, I constantly refine my skills to develop innovative solutions.
         Explore my personal website to discover my experience and dedication to
         impactful software creation.
@@ -26,7 +25,18 @@ export default {
 <style scoped>
 
 .content {
-  background-color: #57BB7E;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
+.content h2 {
+  font-size: 70px;
+}
+
+.content p {
+  font-weight: 600;
+  font-size: 30px;
+}
 </style>

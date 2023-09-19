@@ -2,31 +2,31 @@
   <nav>
     <ul>
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', '#home')">
+        <a :class="{ 'in-section': currentSection === 'about' }" @click="$emit('navigate', '#home')">
           <i class="fas fa-home"></i>
           <span>Home</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', '#about')">
+        <a :class="{ 'in-section': currentSection === 'about' }" @click="$emit('navigate', '#about')">
           <i class="fas fa-info-circle"></i>
           <span>About</span>
         </a>
       </li>
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', '#portfolio')">
+        <a :class="{ 'in-section': currentSection === 'about' }" @click="$emit('navigate', '#portfolio')">
           <i class="fas fa-briefcase"></i>
           <span>Portfolio</span>
         </a>
       </li>
-      <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', '#blog')">
+      <!--<li>
+        <a :class="{ 'in-section': currentSection === 'about' }" @click="$emit('navigate', '#blog')">
           <i class="fas solid fa-blog"></i>
           <span>Blog</span>
         </a>
-      </li>
+      </li>-->
       <li>
-        <a href="javascript:void(0)" @click="$emit('navigate', '#contact')">
+        <a :class="{ 'in-section': currentSection === 'about' }" @click="$emit('navigate', '#contact')">
           <i class="fas fa-envelope"></i>
           <span>Contact</span>
         </a>
@@ -39,20 +39,47 @@
 <script>
 export default {
   name: "WebsiteNavbar",
+  data() {
+    return {
+      currentSection: ""
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const sections = ["home", "about", "portfolio", "contact"];
+      for (let section of sections) {
+        const el = document.querySelector(`#${section}`);
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          this.currentSection = section;
+          return;
+        }
+      }
+    },
+  },
 };
+
 </script>
 
 <style scoped>
 nav {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 20px;  /* Increased padding */
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   z-index: 1000;
+  width: 150px;  /* Increased width */
 }
+
 
 nav ul {
   list-style-type: none;
@@ -72,16 +99,20 @@ nav li {
 nav a {
   color: #F0F0F0;
   text-decoration: none;
-  padding: 10px;
+  padding: 15px;  /* Increased padding */
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
-  font-size: 16px;
+  font-size: 20px;  /* Increased font-size */
 }
 
 nav i {
-  font-size: 24px;
+  font-size: 40px;
+}
+
+nav a.in-section:hover {
+  color: #F0F0F0;
 }
 
 nav a:hover {
@@ -105,7 +136,7 @@ nav span {
     bottom: 0;
     left: 0;
     padding: 0;
-    width: 200px;  /* or whatever width you want */
+    width: 200px;
   }
 
   nav ul {

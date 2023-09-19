@@ -1,7 +1,7 @@
 <!-- ContactPage.vue -->
 <template>
   <div class="content">
-    <h2>Contact</h2>
+    <h2>Available for select freelance opportunities</h2>
     <div class="content-inner">
       <p>Get in touch with me on the following platforms:</p>
       <div class="social-links">
@@ -28,8 +28,19 @@ export default {
 
 <style scoped>
 
-.content-inner p {
-  color: #333;
+.icon-wrapper i {
+  font-size: 50px;
 }
+
+h2 {
+  margin-bottom: 1px;
+  font-size: 30px;
+}
+
+p {
+  margin-top: 1px;
+  font-size: 20px;
+}
+
 
 </style>

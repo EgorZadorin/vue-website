@@ -12,23 +12,34 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
 
 header {
-  margin-left: 200px;
-  text-align: left;
   font-family: 'Raleway', 'Arial', sans-serif;
+
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: flex-start;
+  padding-left: 200px;  /* 200px from the left border */
 }
 
 h1 {
-  font-size: 70px;
+  margin-top: -20px;
+  font-weight: 400;
+  font-size: 66.5px;
 }
 
 h2 {
-  margin-bottom: 45px !important;
+  margin-bottom: 0;
+  font-weight: 800;
   font-size: 100px;
 }
+
+
 
 </style>

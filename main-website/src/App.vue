@@ -11,9 +11,12 @@
       <section id="portfolio">
         <PortfolioPage />
       </section>
-      <section id ="blog">
+      <!-- <section id ="blog">
         <BlogPage />
-      </section>
+      </section> -->
+      <div class="line-wrapper">
+        <div class="green-line"></div>
+      </div>
       <section id="contact">
         <ContactPage />
       </section>
@@ -30,7 +33,7 @@ import WebsiteFooter from "./components/WebsiteFooter.vue";
 import ContactPage from "@/components/ContactPage.vue";
 import AboutPage from "@/components/AboutPage.vue";
 import PortfolioPage from "@/components/ProjectsPage.vue";
-import BlogPage from "@/components/BlogPage.vue";
+// import BlogPage from "@/components/BlogPage.vue";
 
 export default {
   name: "App",
@@ -41,7 +44,7 @@ export default {
     ContactPage,
     AboutPage,
     PortfolioPage,
-    BlogPage
+    // BlogPage
   },
   methods: {
     scrollToSection(sectionId) {
@@ -91,31 +94,56 @@ body {
 }
 
 #home {
-  position: relative;
-  overflow: hidden;
-}
-
-#home::before {
-  content: "";
+  min-height: 960px;
   background-image: url('~@/assets/tech-background.png');
   background-size: cover;
   background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  display: flex;
+  flex-direction: row;
 }
 
-.main-content > section {
-  min-height: 100vh;
+
+.main-content > section:not(#home) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
   z-index: 1;
   padding: 0 15px;
+}
+
+#about {
+  min-height: 960px;
+  background-image: url('~@/assets/gradient.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#portfolio {
+  min-height: 960px;
+  background-color: black;
+}
+
+#blog {
+  min-height: 960px;
+  background-color: black;
+}
+
+.line-wrapper {
+  background-color: black;  /* Black background */
+  display: flex;
+  justify-content: center;  /* Center the green line */
+}
+
+.green-line {
+  height: 4px;
+  width: 70%;
+  background-color: #57BB7E;
+}
+
+
+#contact {
+  min-height: 360px;
+  background-color: black;
 }
 
 </style>
