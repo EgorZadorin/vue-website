@@ -23,9 +23,9 @@ header {
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
+  justify-content: center;
   align-items: flex-start;
-  padding-left: 200px;  /* 200px from the left border */
+  padding-left: 200px;
 }
 
 h1 {

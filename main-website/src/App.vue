@@ -129,9 +129,9 @@ body {
 }
 
 .line-wrapper {
-  background-color: black;  /* Black background */
+  background-color: black;
   display: flex;
-  justify-content: center;  /* Center the green line */
+  justify-content: center;
 }
 
 .green-line {

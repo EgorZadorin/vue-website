@@ -90,7 +90,7 @@ export default {
 }
 
 .project ul {
-  height: 100px;  /* Or whatever fixed height suits you */
+  height: 100px;
   overflow-y: auto;
   font-size: 20px;
 }

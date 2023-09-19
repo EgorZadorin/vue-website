@@ -99,12 +99,13 @@ nav li {
 nav a {
   color: #F0F0F0;
   text-decoration: none;
-  padding: 15px;  /* Increased padding */
+  padding: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
-  font-size: 20px;  /* Increased font-size */
+  font-size: 20px;
+  cursor: pointer;
 }
 
 nav i {

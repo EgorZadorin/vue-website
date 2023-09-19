@@ -1,4 +1,3 @@
-<!-- ContactPage.vue -->
 <template>
   <div class="content">
     <h2>Available for select freelance opportunities</h2>
