@@ -71,13 +71,13 @@ export default {
 nav {
   display: flex;
   flex-direction: column;
-  padding: 20px;  /* Increased padding */
+  padding: 2.5%;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   z-index: 1000;
-  width: 150px;  /* Increased width */
+  width: 5vw;
 }
 
 
@@ -89,7 +89,7 @@ nav ul {
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  gap: 15px;
+  gap: 3%;
 }
 
 nav li {
@@ -99,17 +99,17 @@ nav li {
 nav a {
   color: #F0F0F0;
   text-decoration: none;
-  padding: 15px;
+  padding: 10%;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
-  font-size: 20px;
+  font-size: calc(1em + 0.5vw);
   cursor: pointer;
 }
 
 nav i {
-  font-size: 40px;
+  font-size: calc(1em + 0.5vw);
 }
 
 nav a.in-section:hover {
@@ -137,10 +137,19 @@ nav span {
     bottom: 0;
     left: 0;
     padding: 0;
-    width: 200px;
+    width: auto;
+  }
+
+  nav span {
+    display: none;
+  }
+
+  nav i {
+    font-size: calc(1em + 2vw);
   }
 
   nav ul {
+    margin: 0;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -149,7 +158,9 @@ nav span {
   }
 
   nav a {
-    padding: 15px;
+    box-sizing: border-box;
+    padding: 8.5vw;
+    width: 25%;
   }
 }
 

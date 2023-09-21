@@ -74,6 +74,7 @@ body {
 }
 
 #app {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -83,7 +84,7 @@ body {
 #app::before {
   content: "";
   background-image: url('~@/assets/tech-background.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   position: absolute;
   top: 0;
@@ -94,7 +95,7 @@ body {
 }
 
 #home {
-  min-height: 960px;
+  min-height: 100vh;
   background-image: url('~@/assets/tech-background.png');
   background-size: cover;
   background-position: center;
@@ -102,6 +103,12 @@ body {
   flex-direction: row;
 }
 
+@media only screen and (max-width: 768px) {
+  #home {
+    background-size: auto 90%;
+    background-position: calc(100% + 30vw) center;
+  }
+}
 
 .main-content > section:not(#home) {
   display: flex;
@@ -112,19 +119,19 @@ body {
 }
 
 #about {
-  min-height: 960px;
+  min-height: 100vh;
   background-image: url('~@/assets/gradient.png');
   background-size: cover;
   background-position: center;
 }
 
 #portfolio {
-  min-height: 960px;
+  min-height: 100vh;
   background-color: black;
 }
 
 #blog {
-  min-height: 960px;
+  min-height: 100vh;
   background-color: black;
 }
 
@@ -142,7 +149,7 @@ body {
 
 
 #contact {
-  min-height: 360px;
+  min-height: 30vh;;
   background-color: black;
 }
 

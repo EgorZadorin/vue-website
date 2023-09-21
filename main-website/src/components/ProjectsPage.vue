@@ -44,37 +44,35 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 800px;
+  max-width: 80vw;
 }
 
 .portfolio h2 {
   color: #F0F0F0;
-  transform: translateY(-100px);
-  font-size: 90px;
+  transform: translateY(-10vh);
+  font-size: 5vw;
   text-align: center;
 }
 
 .projects {
-  margin-top: -100px;
+  margin-top: -10vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 100px;
+  flex-wrap: wrap;
 }
-
-
 
 .project {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #F0F0F0;
-  width: 600px;
-  height: 500px;
-  padding: 20px;
-  border-radius: 40px;
+  width: 30vw;
+  height: 50vh;
+  padding: 2vh;
+  border-radius: 2.5vw;
   text-align: center;
-
 }
 
 .project-content {
@@ -86,13 +84,13 @@ export default {
 }
 
 .project h3 {
-  font-size: 30px;
+  font-size: 3vh;
 }
 
 .project ul {
-  height: 100px;
+  height: 10vh;
   overflow-y: auto;
-  font-size: 20px;
+  font-size: 2vh;
 }
 
 
@@ -102,33 +100,66 @@ export default {
 }
 
 .new-project a {
-  padding: 16px 48px;
+  padding: 2.4% 7.2%;
   display: inline-block;
   background-color: #57BB7E;
   color: #F0F0F0;
-  border-radius: 50px;
+  border-radius: 5vw;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 2.5vh;
   text-decoration: none;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 4vh;
+  margin-bottom: 2vh;
+  box-shadow: 0 0.4vw 0.8vw 0 rgba(0, 0, 0, 0.2);
 }
 
 .new-project li {
+  font-weight: 600;
   color: #000000;
 }
 
 .new-project ul {
   list-style-type: none;
-  margin-bottom: 10px;
 }
 
 .new-project p {
-  padding: 30px;
-  font-size: 20px;
+  margin-bottom: 3vh;
+  font-size: 2vh;
   color: #707070;
 }
 
+@media (max-width: 767px) {
+
+ .portfolio h2 {
+   transform: translateY(-15vh);
+   font-size: 10vw;
+ }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #F0F0F0;
+    width: 65vw;
+    height: 20vh;
+    padding: 2vh;
+    border-radius: 5vw;
+    text-align: center;
+  }
+
+  .project-content ul {
+    display: none;
+  }
+
+  .new-project p {
+    margin-bottom: 0;
+    font-size: 1.5vh;
+  }
+
+  .new-project a {
+   margin-top: 1vh;
+  }
+
+}
 
 </style>

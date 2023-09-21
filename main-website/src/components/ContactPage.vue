@@ -28,18 +28,27 @@ export default {
 <style scoped>
 
 .icon-wrapper i {
-  font-size: 50px;
+  font-size: 5vh;
 }
 
 h2 {
-  margin-bottom: 1px;
-  font-size: 30px;
+  margin-bottom: 0.1vh;
+  font-size: 3vh;
 }
 
 p {
-  margin-top: 1px;
-  font-size: 20px;
+  margin-top: 0.1vh;
+  font-size: 2vh;
 }
 
+@media (max-width: 767px) {
+  h2 {
+    text-align: center;
+  }
+
+  .social-links a {
+    margin: 0 2vw;
+  }
+}
 
 </style>

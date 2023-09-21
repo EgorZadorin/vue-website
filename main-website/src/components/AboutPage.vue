@@ -26,17 +26,35 @@ export default {
 
 .content {
   text-align: center;
+  display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  padding: 0 2%;
+}
+
+.content-inner {
+  width: 80%;
+  max-width: 100%;
 }
 
 .content h2 {
-  font-size: 70px;
+  font-size: calc(2em + 1vw);
 }
 
 .content p {
   font-weight: 600;
-  font-size: 30px;
+  font-size: calc(1em + 1vw);
 }
+
+@media (max-width: 767px) {
+  .content {
+    padding: 0 5%;
+  }
+  .content-inner {
+    width: 100%;
+  }
+}
+
 </style>
