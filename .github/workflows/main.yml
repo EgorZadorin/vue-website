@@ -24,9 +24,9 @@ jobs:
           npm install
           npm run build
 
-      - name: Build blog
+      - name: Build spring-lambda
         run: |
-          cd blog
+          cd spring-lambda
           npm install
           npm run build
 
@@ -45,6 +45,6 @@ jobs:
           host: ${{secrets.EC2_HOST}}
           username: ${{secrets.EC2_USERNAME}}
           key: ${{secrets.EC2_PRIVATE_KEY}}
-          source: "blog/dist/"
+          source: "spring-lambda/dist/"
           target: "/var/www/lambda-spring/"
 
