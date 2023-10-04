@@ -2,10 +2,16 @@
   <div id="app-wrapper">
     <h1>Welcome to Email Service</h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at eleifend dui. Fusce euismod magna ultrices dui vulputate, sit amet ornare ante accumsan. Aliquam pretium pellentesque feugiat. Nullam sit amet magna luctus, suscipit mi non, fringilla nisi. Curabitur maximus efficitur lorem ut dapibus. Aliquam et pharetra felis. Nunc convallis posuere molestie.
-    </p>
+      The Email Service, which was initially conceived by Egor Zadorin as a proof-of-concept project, is a streamlined, serverless solution.
+      This application follows RESTful guidelines for its HTTP API, facilitating reliable communication with a database.
+      Built with Java Spring Boot, the Backend component resides on AWS Lambda, offering performance benefits and adaptability, making it well-suited for a variety of tasks
+      The primary advantages of adopting a serverless architecture are its cost-efficiency and scalability compared to traditional server setups.
+      AWS Lambda's features minimize the overhead traditionally associated with server maintenance, including tasks like memory management, request parallelization, and updating the environment.    </p>
     <p>
-      In tincidunt rhoncus mi, tempus lacinia ipsum luctus in. Duis luctus finibus erat, in pellentesque turpis posuere id. Nunc malesuada leo leo, ac laoreet eros pulvinar id. Fusce consequat, velit egestas consequat efficitur, diam lacus maximus magna, at mollis metus mauris a justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam sed quam efficitur, porttitor eros vitae, cursus magna. Curabitur lacinia nisi eu eleifend gravida. Integer facilisis diam purus, ultricies placerat urna aliquam sit amet. Nunc vitae dolor convallis, condimentum mi vel, fringilla libero.
+      The application enables secure, user-friendly interactions. If you wish to contact me, simply add your email to the database, where it is stored in encrypted form.
+      Upon submission, I receive immediate notification and will respond at my earliest convenience. If you decide to withdraw your contact information, you can easily delete your email from the database.
+      Additional features include an email counter and the capability to retrieve all email addresses while maintaining strict confidentiality.
+      While the VueJS Frontend component may appear straightforward, the underlying AWS architecture is quite intricate, as illustrated in the <a href="https://egor-zadorin-files.s3.eu-central-1.amazonaws.com/Emails_Service_Diagram.png">architecture diagram</a>.
     </p>
     <MainPage />
   </div>
@@ -27,7 +33,7 @@ export default {
 
 #app-wrapper {
   width: 60vw;
-  margin-top: 20vh;
+  margin-top: 10vh;
   margin-left: 20vw;
   text-align: left;
 }
@@ -46,6 +52,11 @@ h1 {
 p {
   font-size: calc(0.5vh + 0.8vw);
   font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #57BB7E;
 }
 
 </style>

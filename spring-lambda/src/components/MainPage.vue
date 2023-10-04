@@ -2,7 +2,20 @@
   <div>
     <div class="action-box">
       <div class="input-button-group">
-        <input type="text" id="email" v-model="email" class="custom-input" placeholder="Enter your Email" />
+        <input
+            type="text"
+            id="email"
+            v-model="email"
+            class="custom-input"
+            placeholder="Enter your Email"
+            @keyup.enter="addEmail"
+        />
+        <div v-if="showInvalidEmailModal" class="invalid-email-modal">
+          <div class="invalid-email-modal-content">
+            <span @click="closeInvalidEmailModal" class="close-button">&times;</span>
+            Invalid Email Format. Please enter an existing Email in the following format:<br> user@example.com
+          </div>
+        </div>
         <button @click="addEmail" class="custom-button">Add a New Email</button>
       </div>
     </div>
@@ -10,7 +23,20 @@
 
   <div class="action-box">
     <div class="input-button-group">
-      <input type="text" id="deleteEmail" v-model="emailToDelete" class="custom-input" placeholder="Enter your Email" />
+      <input
+          type="text"
+          id="deleteEmail"
+          v-model="emailToDelete"
+          class="custom-input"
+          placeholder="Enter your Email"
+          @keyup.enter="deleteEmail"
+      />
+      <div v-if="showInvalidEmailModal" class="invalid-email-modal">
+        <div class="invalid-email-modal-content">
+          <span @click="closeInvalidEmailModal" class="close-button">&times;</span>
+          Invalid Email Format. Please enter an existing Email in the following format:<br> user@example.com
+        </div>
+      </div>
       <button @click="deleteEmail" class="custom-button-delete">Delete Email</button>
     </div>
   </div>
@@ -24,13 +50,18 @@
         <font-awesome-icon v-else :icon="['fas', 'chevron-down']" size="2x"/>
       </span>
     </span>
-      <span class="total-emails">Total Emails: {{ emailsAmount }}</span>
+      <span class="total-emails">Total Emails: {{ emailsAmount !== null ? emailsAmount : 0}}</span>
     </div>
     <div v-if="dropdownVisible" class="dropdown-content">
       <div v-if="isLoading"></div>
       <div v-if="error" class="text-danger">{{ error }}</div>
       <div v-else>
-        <span class="email-item" v-for="emailItem in emails" :key="emailItem.id">{{ emailItem.email }}</span>
+        <div v-if="emails.length > 0">
+          <span class="email-item" v-for="emailItem in emails" :key="emailItem.id">
+            {{ emailItem.email }}
+          </span>
+        </div>
+        <span v-else class="email-item">There are no emails yet!</span>
       </div>
     </div>
   </div>
@@ -38,9 +69,11 @@
   <div v-if="showModal" class="modal">
     <div class="modal-content">
       <span @click="closeModal" class="close-button">&times;</span>
-      <p>Are you sure you want to delete the email: {{ emailToDelete }}?</p>
-      <button @click="confirmDelete">Yes</button>
-      <button @click="closeModal">No</button>
+      Are you sure you want to delete the email: {{ emailToDelete }}?
+      <div class="button-container">
+        <button @click="closeModal" class = "modal-button-cancel">Cancel</button>
+        <button @click="confirmDelete" class = "modal-button-delete">Delete</button>
+      </div>
     </div>
   </div>
 
@@ -59,7 +92,10 @@ export default {
       email: "",
       emails: [],
       isLoading: false,
+      isAddEmailValid: true,
+      isDelEmailValid: true,
       showModal: false,
+      showInvalidEmailModal: false,
       error: null,
       emailsAmount: null,
       emailToDelete: "",
@@ -70,6 +106,10 @@ export default {
     this.fetchEmailsAmount();
   },
   methods: {
+    validateEmail(email) {
+      const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return re.test(email);
+    },
     openModal() {
       this.showModal = true;
     },
@@ -91,7 +131,19 @@ export default {
       // Close the modal
       this.closeModal();
     },
+    openInvalidEmailModal() {
+      this.showInvalidEmailModal = true;
+    },
+    closeInvalidEmailModal() {
+      this.showInvalidEmailModal = false;
+    },
     async addEmail() {
+      this.isAddEmailValid = this.validateEmail(this.email);
+      if (!this.isAddEmailValid) {
+        this.openInvalidEmailModal();
+        this.isAddEmailValid = true;
+        return;
+      }
       this.isLoading = true;
       this.error = null;
       try {
@@ -137,10 +189,15 @@ export default {
       }
     },
     async deleteEmail() {
+      this.isDelEmailValid = this.validateEmail(this.emailToDelete);
+      if (!this.isDelEmailValid) {
+        this.openInvalidEmailModal();
+        this.isDelEmailValid = true;
+        return;
+      }
       this.isLoading = true;
       this.error = null;
       const email = this.emailToDelete.trim();
-
       try {
         if (!email) {
           this.error = "Please enter an email address to delete.";
@@ -238,13 +295,38 @@ export default {
 
 .custom-button,
 .custom-button-delete,
+.modal-button-cancel,
+.modal-button-delete,
 .arrow {
   cursor: pointer;
 }
 
 .total-emails,
 .custom-button {
+  color: #F0F0F0;
   background-color: #57BB7E;
+}
+
+.modal-button-delete,
+.modal-button-cancel {
+  font-size: calc(0.5vw + 0.5vh);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 1vh;
+  padding: 0.5vh 0.5vw;
+  border-radius: 0.5em;
+}
+
+.modal-button-cancel {
+  margin-right: 2.5vw;
+  color: #F0F0F0;
+  background-color: #57BB7E;
+}
+
+.modal-button-delete {
+  margin-left: 2.5vw;
+  color: #F0F0F0;
+  background-color: indianred;
 }
 
 .custom-button-delete {
@@ -285,22 +367,61 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
+  font-size: calc(0.5vw + 0.5vh);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
   position: relative;
   margin: auto;
   padding: 20px;
   width: 50%;
-  background-color: #fff;
+  background-color: #797979;
+  color: #F0F0F0;
+  text-align: center;
+  border-radius: 0.5em;
+}
+
+.button-container {
+  justify-content: center;
+}
+
+.invalid-email-modal {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.invalid-email-modal-content {
+  font-size: calc(0.5vw + 0.5vh);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  position: relative;
+  margin: auto;
+  padding: 1vh 1vw;
+  text-align: center;
+  width: 40%;
+  background-color: #797979;
+  color: darkred;
+  border-radius: 0.5em;
 }
 
 .close-button {
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 1vw;
+  top: 0.5vw;
   cursor: pointer;
+  color: #000000;
+  font-size: calc(1vw + 0.5vh);
+}
+
+button:active {
+  background-color: #F0F0F0;
+  color: #57BB7E;
 }
 
 </style>
