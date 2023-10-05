@@ -4,7 +4,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].title = 'Email Database';
+      args[0].title = 'Email Service';
       return args;
     });
   },

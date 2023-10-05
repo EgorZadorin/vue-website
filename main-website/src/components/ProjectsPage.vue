@@ -4,28 +4,30 @@
     <div class="projects">
       <div class="project new-project">
         <div class="project-content">
-          <h3>Spring Boot + AWS Lambda Project</h3>
+          <h3>Email Service</h3>
           <ul>
-            <li>This project demonstrates a Spring Boot app integrated with AWS Lambda, exposing RESTful APIs</li>
+            <li>Ensures security through encryption</li>
+            <li>Employs scalable serverless architecture</li>
+            <li>Uses RESTful HTTP API</li>
           </ul>
         </div>
         <div class="project-action">
-          <p><strong>Tech Stack:</strong> Java, Spring Boot, AWS Lambda, AWS API Gateway, AWS SAM</p>
+          <p><strong>Tech Stack:</strong> Java, Spring, AWS, Lambda, API Gateway, EventBridge, SES, SAM, PostgreSQL, VueJS</p>
           <a href="https://emails.egorzadorin.com" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
         </div>
       </div>
       <div class="project new-project">
         <div class="project-content">
-          <h3>Stock Price Predictor & Alert System</h3>
+          <h3>Stock Price Predictor</h3>
           <ul>
-            <li>Predict stock prices using historical data.</li>
-            <li>Generate visual reports for the predicted vs actual prices.</li>
-            <li>Send alerts when it's optimal to buy/sell.</li>
+            <li>IN PROGRESS</li>
           </ul>
         </div>
         <div class="project-action">
-          <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, Matplotlib/Seaborn, Docker, Kubernetes.</p>
-          <a href="http://python.egorzadorin.com" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
+          <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, Matplotlib/Seaborn, Docker, Kubernetes</p>
+          <a class="view-in-progress">
+            VIEW PROJECT
+          </a>
         </div>
         </div>
     </div>
@@ -87,10 +89,29 @@ export default {
   font-size: 3vh;
 }
 
-.project ul {
+.project-content ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 10vh;
   overflow-y: auto;
   font-size: 2vh;
+}
+
+.project-content li {
+  text-align: center;
+}
+
+.project h3, .project-content ul, .project-action p {
+  margin: 0;
+  padding: 0;
+}
+
+.project-content, .project-action {
+  padding: 1vh 0;
 }
 
 
@@ -128,6 +149,10 @@ export default {
   color: #707070;
 }
 
+.new-project a.view-in-progress {
+  background-color: grey;  /* or any shade of gray you prefer */
+}
+
 @media (max-width: 767px) {
 
  .portfolio h2 {
@@ -159,7 +184,6 @@ export default {
   .new-project a {
    margin-top: 1vh;
   }
-
 }
 
 </style>
