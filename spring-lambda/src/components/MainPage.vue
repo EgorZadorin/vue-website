@@ -66,7 +66,7 @@
     </div>
   </div>
 
-  <div v-if="showModal" class="modal">
+  <div v-if="showModal" class="modal" ref="modalElement">
     <div class="modal-content">
       <span @click="closeModal" class="close-button">&times;</span>
       Are you sure you want to delete the email: {{ emailToDelete }}?
@@ -112,9 +112,21 @@ export default {
     },
     openModal() {
       this.showModal = true;
+      document.addEventListener('keydown', this.navigateButtons);
+    },
+    navigateButtons(event) {
+      const buttons = this.$refs.modalElement.querySelectorAll('.button-container button');
+      const index = Array.from(buttons).indexOf(document.activeElement);
+      if (event.keyCode === 37 && index > 0) { // Left arrow
+        buttons[index - 1].focus();
+      }
+      if (event.keyCode === 39 && index < buttons.length - 1) { // Right arrow
+        buttons[index + 1].focus();
+      }
     },
     closeModal() {
       this.showModal = false;
+      document.removeEventListener('keydown', this.navigateButtons);
     },
     async confirmDelete() {
       const email = this.emailToDelete.trim();
@@ -127,8 +139,6 @@ export default {
       } catch (error) {
         this.error = "Failed to delete email.";
       }
-
-      // Close the modal
       this.closeModal();
     },
     openInvalidEmailModal() {
@@ -262,7 +272,7 @@ export default {
   flex-grow: 1;
   background-color: #2B2B2B;
   border: none;
-  margin-right: 3em;
+  margin-right: 3vw;
 }
 
 .custom-input {
@@ -274,6 +284,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   position: relative;
+  z-index: 1;
 }
 
 .total-emails,
@@ -339,15 +350,20 @@ export default {
 }
 
 .dropdown-content {
-  width: 40vw;
+  width: 47.5vw;
   margin-top: -1.5vh;
   position: absolute;
-  top: calc(100% - 1px);
+  top: calc(100% - 2.2vh);
   left: 0;
   background-color: #393939;
   color: #F0F0F0;
-  border-radius: 0 0 0 2em;
+  border-bottom-left-radius: 1.5vw;
+  border-bottom-right-radius: 1.5vw;
   z-index: 0;
+}
+
+.email-item:first-child {
+  margin-top: 2.2vh;
 }
 
 .email-item {
@@ -355,9 +371,15 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 2em;
-  border-bottom: 0.5vh ridge dimgray;
+  border-bottom: 0.1vh solid #4A4A4A;
+  border-radius: 0;
   color: #F0F0F0;
+}
+
+.email-item:last-child {
+  border-bottom: 0.1vh solid #4A4A4A;
+  border-bottom-left-radius: 1.5vw;
+  border-bottom-right-radius: 1.5vw;
 }
 
 .modal {

@@ -11,7 +11,7 @@
         </div>
         <div class="project-action">
           <p><strong>Tech Stack:</strong> Java, Spring Boot, AWS Lambda, AWS API Gateway, AWS SAM</p>
-          <a href="https://spring.egorzadorin.com" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
+          <a href="https://emails.egorzadorin.com" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
         </div>
       </div>
       <div class="project new-project">
