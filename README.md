@@ -1,4 +1,4 @@
-# Vue Website and Spring Lambda Backend for Email Service
+# Vue Website and Email Service Frontend
 
 This repository contains two main components:
 1. `main-website` - A [Personal Website](https://egorzadorin.com) built using VueJS, HTML and CSS.
