@@ -1,7 +1,7 @@
 <template>
   <header>
     <h2>EGOR ZADORIN</h2>
-    <h1>Software & ML Engineer</h1>
+    <h1>Software Engineer</h1>
   </header>
 </template>
 

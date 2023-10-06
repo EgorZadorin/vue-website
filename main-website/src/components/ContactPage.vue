@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <h2>Available for select freelance opportunities</h2>
+    <h2>Open to diverse job opportunities and collaborations in SWE & MLE roles</h2>
     <div class="content-inner">
       <p>Get in touch with me on the following platforms:</p>
       <div class="social-links">
@@ -32,6 +32,7 @@ export default {
 }
 
 h2 {
+  text-align: center;
   margin-bottom: 0.1vh;
   font-size: 3vh;
 }

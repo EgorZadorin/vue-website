@@ -1,12 +1,12 @@
 <template>
   <div class="content" itemscope itemtype="https://schema.org/Person">
-    <h2>Hi, I'm <span itemprop="name">Egor Zadorin</span>,</h2>
+    <h2>Hi, I'm <span itemprop="name">Egor Zadorin</span>!</h2>
     <div class="content-inner">
       <p>
-        a Software Engineer specializing in Java/Spring Framework and AWS. As a Computer Science M.Sc.
-        student, I constantly refine my skills to develop innovative solutions.
-        Explore my personal website to discover my experience and dedication to
-        impactful software creation.
+        As a Software Engineer and a current Master's student in Computer Science,
+        I specialize in leveraging Java/Spring Framework and AWS to drive impactful software innovation.
+        Eager to continue refining my skills, I am consistently on the lookout for opportunities to learn and practically apply new technologies.
+        Explore my personal website to learn more about my dedication to impactful software creation!
       </p>
       <p itemprop="jobTitle" content="Software Engineer"></p>
       <p itemprop="url" content="https://egorzadorin.com"></p>
