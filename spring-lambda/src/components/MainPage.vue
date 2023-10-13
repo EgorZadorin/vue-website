@@ -21,6 +21,18 @@
     </div>
   </div>
 
+  <div>
+    <div>
+      <textarea
+          style="overflow:hidden"
+          id="message"
+          v-model="message"
+          class="input-message-group"
+          placeholder="Enter your Message*"
+      />
+    </div>
+  </div>
+
   <div class="action-box">
     <div class="input-button-group">
       <input
@@ -90,6 +102,7 @@ export default {
   data() {
     return {
       email: "",
+      message: "",
       emails: [],
       isLoading: false,
       isAddEmailValid: true,
@@ -117,10 +130,10 @@ export default {
     navigateButtons(event) {
       const buttons = this.$refs.modalElement.querySelectorAll('.button-container button');
       const index = Array.from(buttons).indexOf(document.activeElement);
-      if (event.keyCode === 37 && index > 0) { // Left arrow
+      if (event.keyCode === 37 && index > 0) {
         buttons[index - 1].focus();
       }
-      if (event.keyCode === 39 && index < buttons.length - 1) { // Right arrow
+      if (event.keyCode === 39 && index < buttons.length - 1) {
         buttons[index + 1].focus();
       }
     },
@@ -158,10 +171,14 @@ export default {
       this.error = null;
       try {
         const data = {
-          email: this.email
+          emailDto: {
+            email: this.email
+          },
+          message: this.message
         };
         await axios.post("https://6gest3ir9l.execute-api.eu-central-1.amazonaws.com/subscribers", data);
         this.email = "";
+        this.message = "";
         await this.fetchEmails();
         await this.fetchEmailsAmount();
       } catch (error) {
@@ -251,6 +268,22 @@ export default {
   align-items: center;
 }
 
+.input-message-group {
+  padding: 2vw;
+  margin-top: 1.75vh;
+  margin-bottom: 1.75vh;
+  width: 43.5vw;
+  height: 13vh;
+  display: flex;
+  align-items: center;
+  font-size: calc(0.5vw + 0.5vh);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  border-radius: 1em;
+  background-color: #2B2B2B;
+  border: none;
+}
+
 .total-emails,
 .custom-button,
 .custom-button-delete,
@@ -275,7 +308,8 @@ export default {
   margin-right: 3vw;
 }
 
-.custom-input {
+.custom-input,
+.input-message-group {
   color:  #F0F0F0;
 }
 

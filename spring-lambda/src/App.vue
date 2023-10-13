@@ -46,12 +46,13 @@ body, h1, p {
 }
 
 h1 {
-  font-size: calc(1.5vh + 2.5vw);
+  font-size: calc(1vh + 2vw);
   font-weight: bold;
 }
 
 p {
-  font-size: calc(0.5vh + 0.8vw);
+  font-size: calc(0.3vh + 0.6vw);
+  line-height: 2vh;
   font-weight: normal;
 }
 
