@@ -44,6 +44,7 @@
           @keyup.enter="deleteEmail"
       />
       <div v-if="showInvalidEmailModal" class="invalid-email-modal">
+        <div class="modal-backdrop"></div>
         <div class="invalid-email-modal-content">
           <span @click="closeInvalidEmailModal" class="close-button">&times;</span>
           Invalid Email Format. Please enter an existing Email in the following format:<br> user@example.com
@@ -79,6 +80,7 @@
   </div>
 
   <div v-if="showModal" class="modal" ref="modalElement">
+    <div class="modal-backdrop"></div>
     <div class="modal-content">
       <span @click="closeModal" class="close-button">&times;</span>
       Are you sure you want to delete the email: {{ emailToDelete }}?
@@ -423,6 +425,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
 }
 
 .modal-content {
@@ -437,6 +440,7 @@ export default {
   color: #F0F0F0;
   text-align: center;
   border-radius: 0.5em;
+  z-index: 2;
 }
 
 .button-container {
@@ -450,6 +454,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
 }
 
 .invalid-email-modal-content {
@@ -464,6 +469,7 @@ export default {
   background-color: #797979;
   color: darkred;
   border-radius: 0.5em;
+  z-index: 2;
 }
 
 .close-button {
@@ -471,13 +477,23 @@ export default {
   right: 1vw;
   top: 0.5vw;
   cursor: pointer;
-  color: #000000;
+  color: #F0F0F0;
   font-size: calc(1vw + 0.5vh);
 }
 
 button:active {
   background-color: #F0F0F0;
   color: #57BB7E;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 
 </style>
